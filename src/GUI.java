@@ -49,9 +49,13 @@ public class GUI extends javax.swing.JFrame
             gr1[i].setDescription("Este es una prueba! Le has ganado a " + p2.getUsername());
         }
         
+        
+        /*
         ImageIcon board = new ImageIcon();
         System.out.println(board.getIconHeight() + " y " + board.getIconWidth());
         jl_board.setIcon(board);
+        */
+        
         
         //jp_CardHandler.setVisible(true);
         cardLayout.show(jp_CardHandler, "LoginCard");

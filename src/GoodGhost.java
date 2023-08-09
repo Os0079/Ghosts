@@ -9,11 +9,15 @@
  */
 public class GoodGhost extends Ghost
 {
-
+    private String filePath = "C:\\Users\\smnsl\\OneDrive\\Documentos\\NetBeansProjects\\Programacion2_Ghosts\\Images\\GoodGhost.png";
+    
     public GoodGhost() {
         super("Good", true, null);
     }
     
-    
+    public String getFilePath()
+    {
+        return filePath;
+    }
     
 }

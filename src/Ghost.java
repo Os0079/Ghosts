@@ -45,5 +45,5 @@ public abstract class Ghost
     }
     
     
-    
+    public abstract String getFilePath();
 }
