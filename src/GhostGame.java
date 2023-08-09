@@ -7,7 +7,7 @@
  *
  * @author smnsl
  */
-public class Game
+public class GhostGame
 {
     //Atributes
     private int GameScore;
@@ -17,7 +17,7 @@ public class Game
     
     
     // Constructor
-    public Game(int puntaje, String enemigo, boolean gano) 
+    public GhostGame(int puntaje, String enemigo, boolean gano) 
     {
         GameScore = puntaje;
         enemyPlayer = enemigo;

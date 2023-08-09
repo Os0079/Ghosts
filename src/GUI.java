@@ -135,6 +135,26 @@ public class GUI extends javax.swing.JFrame
         jl_PasswordGoesHere = new javax.swing.JLabel();
         jl_ScoreTitle = new javax.swing.JLabel();
         jl_ScoreGoesHere = new javax.swing.JLabel();
+        jsp_GamePanel = new javax.swing.JSplitPane();
+        jp_BoardSidebar = new javax.swing.JPanel();
+        JL_GhostsLabel = new javax.swing.JLabel();
+        jl_EnemyLabel = new javax.swing.JLabel();
+        jl_EnemyNameGoesHere = new javax.swing.JLabel();
+        jl_HisGoodGhosts = new javax.swing.JLabel();
+        jl_HisGoodNumber = new javax.swing.JLabel();
+        jl_HisBadGhosts = new javax.swing.JLabel();
+        jl_HisBadNumber = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jl_You = new javax.swing.JLabel();
+        jl_LoggedNameGoesHere = new javax.swing.JLabel();
+        JL_YourGoodGhosts = new javax.swing.JLabel();
+        jl_YourBadGhosts = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jl_LoggedGoodNumber = new javax.swing.JLabel();
+        jl_LoggedBadNumber = new javax.swing.JLabel();
+        jb_SurrenderButton = new javax.swing.JButton();
+        jp_BoardPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ghosts");
@@ -619,6 +639,178 @@ public class GUI extends javax.swing.JFrame
 
         jp_CardHandler.add(jp_MyProfilePanel, "ProfileCard");
 
+        jsp_GamePanel.setDividerLocation(200);
+        jsp_GamePanel.setMaximumSize(new java.awt.Dimension(1970, 1080));
+        jsp_GamePanel.setMinimumSize(new java.awt.Dimension(900, 700));
+        jsp_GamePanel.setPreferredSize(new java.awt.Dimension(900, 700));
+        jsp_GamePanel.setRequestFocusEnabled(false);
+
+        jp_BoardSidebar.setBackground(new java.awt.Color(153, 153, 153));
+
+        JL_GhostsLabel.setBackground(new java.awt.Color(51, 51, 51));
+        JL_GhostsLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        JL_GhostsLabel.setForeground(new java.awt.Color(51, 51, 51));
+        JL_GhostsLabel.setText("GHOSTS");
+
+        jl_EnemyLabel.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jl_EnemyLabel.setForeground(new java.awt.Color(51, 51, 51));
+        jl_EnemyLabel.setText("Enemy Player:");
+
+        jl_EnemyNameGoesHere.setForeground(new java.awt.Color(51, 51, 51));
+
+        jl_HisGoodGhosts.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jl_HisGoodGhosts.setForeground(new java.awt.Color(51, 51, 51));
+        jl_HisGoodGhosts.setText("His good ghosts:");
+
+        jl_HisGoodNumber.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jl_HisGoodNumber.setForeground(new java.awt.Color(51, 51, 51));
+
+        jl_HisBadGhosts.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jl_HisBadGhosts.setForeground(new java.awt.Color(51, 51, 51));
+        jl_HisBadGhosts.setText("His bad ghosts:");
+
+        jl_HisBadNumber.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jl_HisBadNumber.setForeground(new java.awt.Color(51, 51, 51));
+
+        jl_You.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jl_You.setForeground(new java.awt.Color(51, 51, 51));
+        jl_You.setText("You:");
+
+        jl_LoggedNameGoesHere.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jl_LoggedNameGoesHere.setForeground(new java.awt.Color(51, 51, 51));
+
+        JL_YourGoodGhosts.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        JL_YourGoodGhosts.setForeground(new java.awt.Color(51, 51, 51));
+        JL_YourGoodGhosts.setText("Your good ghosts:");
+
+        jl_YourBadGhosts.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jl_YourBadGhosts.setForeground(new java.awt.Color(51, 51, 51));
+        jl_YourBadGhosts.setText("Your bad ghosts:");
+
+        jl_LoggedGoodNumber.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jl_LoggedGoodNumber.setForeground(new java.awt.Color(51, 51, 51));
+
+        jl_LoggedBadNumber.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jl_LoggedBadNumber.setForeground(new java.awt.Color(51, 51, 51));
+
+        jb_SurrenderButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jb_SurrenderButton.setText("SURRENDER");
+
+        javax.swing.GroupLayout jp_BoardSidebarLayout = new javax.swing.GroupLayout(jp_BoardSidebar);
+        jp_BoardSidebar.setLayout(jp_BoardSidebarLayout);
+        jp_BoardSidebarLayout.setHorizontalGroup(
+            jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_BoardSidebarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jl_EnemyNameGoesHere, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                        .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(JL_GhostsLabel))
+                            .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jl_EnemyLabel)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                                .addComponent(jl_HisGoodGhosts)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jl_HisGoodNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jSeparator2)
+                            .addComponent(jSeparator3))))
+                .addContainerGap())
+            .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                        .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator4)
+                            .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                                .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                                        .addComponent(jl_HisBadGhosts)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jl_HisBadNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jl_You)
+                                    .addComponent(JL_YourGoodGhosts)
+                                    .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                                        .addComponent(jl_YourBadGhosts)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jl_LoggedBadNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_BoardSidebarLayout.createSequentialGroup()
+                        .addGap(0, 14, Short.MAX_VALUE)
+                        .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jl_LoggedGoodNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jl_LoggedNameGoesHere, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23))))
+            .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jb_SurrenderButton)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jp_BoardSidebarLayout.setVerticalGroup(
+            jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(JL_GhostsLabel)
+                .addGap(27, 27, 27)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jl_EnemyLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jl_EnemyNameGoesHere, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jl_HisGoodGhosts))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_BoardSidebarLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jl_HisGoodNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jl_HisBadGhosts)
+                    .addComponent(jl_HisBadNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
+                .addComponent(jb_SurrenderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jl_You)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jl_LoggedNameGoesHere, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JL_YourGoodGhosts)
+                            .addComponent(jl_LoggedGoodNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jl_YourBadGhosts))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_BoardSidebarLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(jl_LoggedBadNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(58, 58, 58))
+        );
+
+        jsp_GamePanel.setLeftComponent(jp_BoardSidebar);
+
+        jp_BoardPanel.setBackground(new java.awt.Color(102, 102, 102));
+        jp_BoardPanel.setForeground(new java.awt.Color(51, 51, 51));
+        jsp_GamePanel.setRightComponent(jp_BoardPanel);
+
+        jp_CardHandler.add(jsp_GamePanel, "GameCard");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -973,9 +1165,14 @@ public class GUI extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JL_GhostsLabel;
+    private javax.swing.JLabel JL_YourGoodGhosts;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JButton jb_10GamesButton;
     private javax.swing.JButton jb_BackToMainMenuButton;
     private javax.swing.JButton jb_CloseSessionButton;
@@ -993,18 +1190,28 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JButton jb_SUSignUpButton;
     private javax.swing.JButton jb_SettingBackToMenuButton;
     private javax.swing.JButton jb_SettingsButton;
+    private javax.swing.JButton jb_SurrenderButton;
     private javax.swing.JButton jb_UpdateButton;
     private javax.swing.JComboBox<String> jcb_DifficultyBox;
     private javax.swing.JComboBox<String> jcb_GamemodebBox;
     private javax.swing.JLabel jl_ChangeNameTitle;
     private javax.swing.JLabel jl_ChangePassTitle;
     private javax.swing.JLabel jl_DifficultyLabel;
+    private javax.swing.JLabel jl_EnemyLabel;
+    private javax.swing.JLabel jl_EnemyNameGoesHere;
     private javax.swing.JLabel jl_GamemodeLabel;
     private javax.swing.JLabel jl_GhostIcon1;
+    private javax.swing.JLabel jl_HisBadGhosts;
+    private javax.swing.JLabel jl_HisBadNumber;
+    private javax.swing.JLabel jl_HisGoodGhosts;
+    private javax.swing.JLabel jl_HisGoodNumber;
     private javax.swing.JLabel jl_LGCreateAccount;
     private javax.swing.JLabel jl_LGLoginMenuTitle;
     private javax.swing.JLabel jl_LGNameLabel;
     private javax.swing.JLabel jl_LGPasswordLabel;
+    private javax.swing.JLabel jl_LoggedBadNumber;
+    private javax.swing.JLabel jl_LoggedGoodNumber;
+    private javax.swing.JLabel jl_LoggedNameGoesHere;
     private javax.swing.JLabel jl_MyProfileTitle;
     private javax.swing.JLabel jl_PasswordGoesHere;
     private javax.swing.JLabel jl_PasswordTitle;
@@ -1019,7 +1226,11 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JLabel jl_SettingTitle;
     private javax.swing.JLabel jl_UsernameGoesHere;
     private javax.swing.JLabel jl_UsernameTitle;
+    private javax.swing.JLabel jl_You;
+    private javax.swing.JLabel jl_YourBadGhosts;
     private javax.swing.JPanel jp_10GamesPanel;
+    private javax.swing.JPanel jp_BoardPanel;
+    private javax.swing.JPanel jp_BoardSidebar;
     private javax.swing.JPanel jp_CardHandler;
     private javax.swing.JPanel jp_LGBackground;
     private javax.swing.JPanel jp_LGDataBackground;
@@ -1039,6 +1250,7 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JPanel jp_SettingsMenuPanel;
     private javax.swing.JPanel jp_SettingsPanel;
     private javax.swing.JPanel jp_ToLogPanel;
+    private javax.swing.JSplitPane jsp_GamePanel;
     private javax.swing.JTable jt_10GamesTable;
     private javax.swing.JTextField jtf_LGNameField;
     private javax.swing.JTextField jtf_LGPasswordField;
