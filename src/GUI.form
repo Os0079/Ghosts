@@ -591,6 +591,162 @@
             </Container>
           </SubComponents>
         </Container>
+        <Container class="javax.swing.JPanel" name="jp_SettingsPanel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="SettingsCard"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
+                      <Component id="jp_SettingsMenuPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="250" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jp_SettingsMenuPanel" alignment="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jp_SettingsMenuPanel">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                                  <Component id="jl_SettingTitle" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jl_GamemodeLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jSeparator1" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="jl_DifficultyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jcb_DifficultyBox" min="-2" pref="210" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                          <Component id="jcb_GamemodebBox" min="-2" pref="215" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                          <Component id="jb_SettingBackToMenuButton" min="-2" pref="125" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                          <Component id="jl_SettingTitle" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="jl_DifficultyLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jcb_DifficultyBox" min="-2" pref="72" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jl_GamemodeLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jcb_GamemodebBox" min="-2" pref="76" max="-2" attributes="0"/>
+                          <EmptySpace pref="111" max="32767" attributes="0"/>
+                          <Component id="jb_SettingBackToMenuButton" min="-2" pref="48" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jl_SettingTitle">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="24" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="SETTINGS"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jl_DifficultyLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="24" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Difficulty"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jl_GamemodeLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="24" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Gamemode"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSeparator" name="jSeparator1">
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jcb_DifficultyBox">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="NORMAL"/>
+                        <StringItem index="1" value="EXPERT"/>
+                        <StringItem index="2" value="GENIUS"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jcb_GamemodebBox">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="2">
+                        <StringItem index="0" value="RANDOM"/>
+                        <StringItem index="1" value="MANUAL"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="jb_SettingBackToMenuButton">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Back to menu"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_SettingBackToMenuButtonMouseClicked"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
         <Container class="javax.swing.JPanel" name="jp_ReportsPanel">
           <Properties>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -979,165 +1135,6 @@
                       <AbsoluteConstraints x="50" y="390" width="300" height="70"/>
                     </Constraint>
                   </Constraints>
-                </Component>
-              </SubComponents>
-            </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jp_SettingsPanel">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="66" type="rgb"/>
-            </Property>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="SettingsCard"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
-                      <Component id="jp_SettingsMenuPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="250" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jp_SettingsMenuPanel" alignment="0" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Container class="javax.swing.JPanel" name="jp_SettingsMenuPanel">
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-                                  <Component id="jl_SettingTitle" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jl_GamemodeLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jSeparator1" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                                      <Component id="jl_DifficultyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="jcb_DifficultyBox" min="-2" pref="210" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                          <Component id="jcb_GamemodebBox" min="-2" pref="215" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                          <Component id="jb_SettingBackToMenuButton" min="-2" pref="125" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                          <Component id="jl_SettingTitle" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="jl_DifficultyLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jcb_DifficultyBox" min="-2" pref="72" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jl_GamemodeLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jcb_GamemodebBox" min="-2" pref="76" max="-2" attributes="0"/>
-                          <EmptySpace pref="111" max="32767" attributes="0"/>
-                          <Component id="jb_SettingBackToMenuButton" min="-2" pref="48" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jl_SettingTitle">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="24" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="SETTINGS"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jl_DifficultyLabel">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="24" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Difficulty"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jl_GamemodeLabel">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="24" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Gamemode"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JSeparator" name="jSeparator1">
-                </Component>
-                <Component class="javax.swing.JComboBox" name="jcb_DifficultyBox">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="jcb_GamemodebBox">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JButton" name="jb_SettingBackToMenuButton">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Back to menu"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_SettingBackToMenuButtonMouseClicked"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>

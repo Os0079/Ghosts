@@ -98,6 +98,15 @@ public class GUI extends javax.swing.JFrame
         jb_MyProfileButton = new javax.swing.JButton();
         jb_ExitButton = new javax.swing.JButton();
         jb_CloseSessionButton = new javax.swing.JButton();
+        jp_SettingsPanel = new javax.swing.JPanel();
+        jp_SettingsMenuPanel = new javax.swing.JPanel();
+        jl_SettingTitle = new javax.swing.JLabel();
+        jl_DifficultyLabel = new javax.swing.JLabel();
+        jl_GamemodeLabel = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jcb_DifficultyBox = new javax.swing.JComboBox<>();
+        jcb_GamemodebBox = new javax.swing.JComboBox<>();
+        jb_SettingBackToMenuButton = new javax.swing.JButton();
         jp_ReportsPanel = new javax.swing.JPanel();
         jp_ReportsMenuBG = new javax.swing.JPanel();
         jl_ReportsTitle = new javax.swing.JLabel();
@@ -126,15 +135,6 @@ public class GUI extends javax.swing.JFrame
         jl_PasswordGoesHere = new javax.swing.JLabel();
         jl_ScoreTitle = new javax.swing.JLabel();
         jl_ScoreGoesHere = new javax.swing.JLabel();
-        jp_SettingsPanel = new javax.swing.JPanel();
-        jp_SettingsMenuPanel = new javax.swing.JPanel();
-        jl_SettingTitle = new javax.swing.JLabel();
-        jl_DifficultyLabel = new javax.swing.JLabel();
-        jl_GamemodeLabel = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jcb_DifficultyBox = new javax.swing.JComboBox<>();
-        jcb_GamemodebBox = new javax.swing.JComboBox<>();
-        jb_SettingBackToMenuButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ghosts");
@@ -362,6 +362,93 @@ public class GUI extends javax.swing.JFrame
 
         jp_CardHandler.add(jp_MainMenu, "MainMenuCard");
 
+        jp_SettingsPanel.setBackground(new java.awt.Color(102, 102, 102));
+
+        jl_SettingTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_SettingTitle.setText("SETTINGS");
+
+        jl_DifficultyLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_DifficultyLabel.setText("Difficulty");
+
+        jl_GamemodeLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_GamemodeLabel.setText("Gamemode");
+
+        jcb_DifficultyBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NORMAL", "EXPERT", "GENIUS" }));
+
+        jcb_GamemodebBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RANDOM", "MANUAL" }));
+
+        jb_SettingBackToMenuButton.setText("Back to menu");
+        jb_SettingBackToMenuButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_SettingBackToMenuButtonMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_SettingsMenuPanelLayout = new javax.swing.GroupLayout(jp_SettingsMenuPanel);
+        jp_SettingsMenuPanel.setLayout(jp_SettingsMenuPanelLayout);
+        jp_SettingsMenuPanelLayout.setHorizontalGroup(
+            jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                .addGroup(jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(jl_SettingTitle))
+                    .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jl_GamemodeLabel)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jl_DifficultyLabel))))
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_SettingsMenuPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jcb_DifficultyBox, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jcb_GamemodebBox, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(jb_SettingBackToMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_SettingsMenuPanelLayout.setVerticalGroup(
+            jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jl_SettingTitle)
+                .addGap(47, 47, 47)
+                .addComponent(jl_DifficultyLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jcb_DifficultyBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jl_GamemodeLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jcb_GamemodebBox, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addComponent(jb_SettingBackToMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
+        );
+
+        javax.swing.GroupLayout jp_SettingsPanelLayout = new javax.swing.GroupLayout(jp_SettingsPanel);
+        jp_SettingsPanel.setLayout(jp_SettingsPanelLayout);
+        jp_SettingsPanelLayout.setHorizontalGroup(
+            jp_SettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_SettingsPanelLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(jp_SettingsMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(250, Short.MAX_VALUE))
+        );
+        jp_SettingsPanelLayout.setVerticalGroup(
+            jp_SettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_SettingsMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jp_CardHandler.add(jp_SettingsPanel, "SettingsCard");
+
         jp_ReportsPanel.setMaximumSize(new java.awt.Dimension(1970, 1080));
         jp_ReportsPanel.setMinimumSize(new java.awt.Dimension(880, 680));
         jp_ReportsPanel.setPreferredSize(new java.awt.Dimension(880, 685));
@@ -532,93 +619,6 @@ public class GUI extends javax.swing.JFrame
 
         jp_CardHandler.add(jp_MyProfilePanel, "ProfileCard");
 
-        jp_SettingsPanel.setBackground(new java.awt.Color(102, 102, 102));
-
-        jl_SettingTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jl_SettingTitle.setText("SETTINGS");
-
-        jl_DifficultyLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jl_DifficultyLabel.setText("Difficulty");
-
-        jl_GamemodeLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jl_GamemodeLabel.setText("Gamemode");
-
-        jcb_DifficultyBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jcb_GamemodebBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jb_SettingBackToMenuButton.setText("Back to menu");
-        jb_SettingBackToMenuButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_SettingBackToMenuButtonMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_SettingsMenuPanelLayout = new javax.swing.GroupLayout(jp_SettingsMenuPanel);
-        jp_SettingsMenuPanel.setLayout(jp_SettingsMenuPanelLayout);
-        jp_SettingsMenuPanelLayout.setHorizontalGroup(
-            jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
-                .addGroup(jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(jl_SettingTitle))
-                    .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jl_GamemodeLabel)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jl_DifficultyLabel))))
-                .addContainerGap(41, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_SettingsMenuPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jcb_DifficultyBox, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(jcb_GamemodebBox, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jb_SettingBackToMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jp_SettingsMenuPanelLayout.setVerticalGroup(
-            jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(jl_SettingTitle)
-                .addGap(47, 47, 47)
-                .addComponent(jl_DifficultyLabel)
-                .addGap(18, 18, 18)
-                .addComponent(jcb_DifficultyBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jl_GamemodeLabel)
-                .addGap(18, 18, 18)
-                .addComponent(jcb_GamemodebBox, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
-                .addComponent(jb_SettingBackToMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
-        );
-
-        javax.swing.GroupLayout jp_SettingsPanelLayout = new javax.swing.GroupLayout(jp_SettingsPanel);
-        jp_SettingsPanel.setLayout(jp_SettingsPanelLayout);
-        jp_SettingsPanelLayout.setHorizontalGroup(
-            jp_SettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_SettingsPanelLayout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(jp_SettingsMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
-        );
-        jp_SettingsPanelLayout.setVerticalGroup(
-            jp_SettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_SettingsMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jp_CardHandler.add(jp_SettingsPanel, "SettingsCard");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -643,12 +643,12 @@ public class GUI extends javax.swing.JFrame
 
         if (nombre.isBlank() || contra.isBlank()) 
         {
-            JOptionPane.showMessageDialog(this, "Por favor no dejar casillas vacias.");
+            JOptionPane.showMessageDialog(this, "Please do not leave empty spaces.");
         } else 
         {
             if (logger.search(nombre) == null) 
             {
-                JOptionPane.showMessageDialog(this, "Este usuario no existe.");
+                JOptionPane.showMessageDialog(this, "This user does not exist.");
             } else 
             {
                 Player p = logger.search(nombre);
@@ -657,7 +657,7 @@ public class GUI extends javax.swing.JFrame
                 if (p.isLoggedIn())
                 {
                     
-                    JOptionPane.showMessageDialog(this, "Ingresado correctamente.");
+                    JOptionPane.showMessageDialog(this, "Starting...");
                     
                     /*
                     jp_LGBackground.setVisible(false);
@@ -668,7 +668,7 @@ public class GUI extends javax.swing.JFrame
 
                 }else
                 {
-                    JOptionPane.showMessageDialog(this, "Contraseña incorrecta.");
+                    JOptionPane.showMessageDialog(this, "Wrong password.");
                 }
                 
                 logger.listPlayers();
@@ -687,18 +687,18 @@ public class GUI extends javax.swing.JFrame
         
         if (nombre.isBlank() || contra.isBlank() )
         {
-            JOptionPane.showMessageDialog(this, "Por favor no dejar casillas vacias.");
+            JOptionPane.showMessageDialog(this, "Please do not leave empty spaces");
         } else
         {
             if ( logger.search(nombre) != null)
             {
-                JOptionPane.showMessageDialog(this, "Este usuario ya existe.");
+                JOptionPane.showMessageDialog(this, "This user already exists.");
             } else
             {
                 Player p = new Player(nombre, contra);
                 logger.addPlayer(p);
                 p.setLoggedIn(logger.login(nombre, contra));
-                JOptionPane.showMessageDialog(this, "Agregado correctamente.");
+                JOptionPane.showMessageDialog(this, "User added successfully.");
 
                 /*
                 jp_SUBackground.setVisible(false);
@@ -775,7 +775,7 @@ public class GUI extends javax.swing.JFrame
         */
         
         cardLayout.show(jp_CardHandler, "ProfileCard");
-
+        jp_ModifyPanel.setVisible(false);
         
         Player p = logger.getLoggedInPlayer();
 
@@ -810,12 +810,12 @@ public class GUI extends javax.swing.JFrame
         
         if (newName.isBlank() || newPass.isBlank())
         {
-            JOptionPane.showMessageDialog(this, "No puedes dejar un espacio en blanco.");
+            JOptionPane.showMessageDialog(this, "Please do not leave empty spaces.");
         } else
         {
             p.setUsername(newName);
             p.setPassword(newPass);
-            JOptionPane.showMessageDialog(this, "Informacion actualizada exitosamente.");
+            JOptionPane.showMessageDialog(this, "Profile data updated successfully");
             logger.listPlayers();
             jp_ModifyPanel.setVisible(false);
             jp_ProfileDataPanel.setVisible(true);
@@ -839,15 +839,21 @@ public class GUI extends javax.swing.JFrame
 
     private void jb_EraseAccountButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_EraseAccountButtonMouseClicked
         // TODO add your handling code here:
-        Player p = logger.getLoggedInPlayer();
+        int option;
         
-        logger.getPlayers().remove(p);
-        
-        jp_LGBackground.setVisible(true);
-        //jp_MainMenu.setVisible(false);
-        jp_MyProfilePanel.setVisible(false);
+        if (JOptionPane.showConfirmDialog(this, "Are you sure you want to erase your profile?", "Erase Account", JOptionPane.YES_NO_OPTION) == 0)
+        {
+            Player p = logger.getLoggedInPlayer();
 
-        logger.listPlayers();
+            logger.getPlayers().remove(p);
+
+            jp_LGBackground.setVisible(true);
+            //jp_MainMenu.setVisible(false);
+            jp_MyProfilePanel.setVisible(false);
+            logger.listPlayers();
+        }
+        
+        
         
     }//GEN-LAST:event_jb_EraseAccountButtonMouseClicked
 
