@@ -1,4 +1,5 @@
 
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -18,14 +19,20 @@ public class GUI extends javax.swing.JFrame
     /**
      * Creates new form GUI
      */
+    CardLayout cardLayout;
     public GUI() 
     {
         initComponents();
+        
+        
+        cardLayout = (CardLayout) (jp_CardHandler.getLayout());
+        
+        /*
         jp_MainMenu.setVisible(false);
         jp_MyProfilePanel.setVisible(false);
         jp_ModifyPanel.setVisible(false);
         jp_LGToSUPanel.setVisible(false);
-        
+        */
         
         
         Player p1 = new Player("Dumy1", "Test1");
@@ -40,6 +47,10 @@ public class GUI extends javax.swing.JFrame
             gr1[i] = new Game(3, p2.getUsername(), true);
             gr1[i].setDescription("Este es una prueba! Le has ganado a " + p2.getUsername());
         }
+        
+        
+        //jp_CardHandler.setVisible(true);
+        cardLayout.show(jp_CardHandler, "LoginCard");
     }
 
     /**
@@ -51,6 +62,7 @@ public class GUI extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jp_CardHandler = new javax.swing.JPanel();
         jp_SUBackground = new javax.swing.JPanel();
         jp_SUIconBackground = new javax.swing.JPanel();
         jl_SUGhostIcon = new javax.swing.JLabel();
@@ -86,6 +98,15 @@ public class GUI extends javax.swing.JFrame
         jb_MyProfileButton = new javax.swing.JButton();
         jb_ExitButton = new javax.swing.JButton();
         jb_CloseSessionButton = new javax.swing.JButton();
+        jp_ReportsPanel = new javax.swing.JPanel();
+        jp_ReportsMenuBG = new javax.swing.JPanel();
+        jl_ReportsTitle = new javax.swing.JLabel();
+        jb_RankingButton = new javax.swing.JButton();
+        jb_10GamesButton = new javax.swing.JButton();
+        jb_ReportsToMenuButton = new javax.swing.JButton();
+        jp_10GamesPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_10GamesTable = new javax.swing.JTable();
         jp_MyProfilePanel = new javax.swing.JPanel();
         jp_ProfileSettings = new javax.swing.JPanel();
         jl_MyProfileTitle = new javax.swing.JLabel();
@@ -105,25 +126,26 @@ public class GUI extends javax.swing.JFrame
         jl_PasswordGoesHere = new javax.swing.JLabel();
         jl_ScoreTitle = new javax.swing.JLabel();
         jl_ScoreGoesHere = new javax.swing.JLabel();
-        jp_ReportsPanel = new javax.swing.JPanel();
-        jp_ReportsMenuBG = new javax.swing.JPanel();
-        jl_ReportsTitle = new javax.swing.JLabel();
-        jb_RankingButton = new javax.swing.JButton();
-        jb_10GamesButton = new javax.swing.JButton();
-        jb_ReportsToMenuButton = new javax.swing.JButton();
-        jp_10GamesPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jt_10GamesTable = new javax.swing.JTable();
+        jp_SettingsPanel = new javax.swing.JPanel();
+        jp_SettingsMenuPanel = new javax.swing.JPanel();
+        jl_SettingTitle = new javax.swing.JLabel();
+        jl_DifficultyLabel = new javax.swing.JLabel();
+        jl_GamemodeLabel = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jcb_DifficultyBox = new javax.swing.JComboBox<>();
+        jcb_GamemodebBox = new javax.swing.JComboBox<>();
+        jb_SettingBackToMenuButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ghosts");
         setMinimumSize(new java.awt.Dimension(880, 680));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jp_CardHandler.setLayout(new java.awt.CardLayout());
 
         jp_SUBackground.setBackground(new java.awt.Color(51, 51, 51));
         jp_SUBackground.setMaximumSize(new java.awt.Dimension(1980, 1080));
-        jp_SUBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jp_SUBackground.setMinimumSize(new java.awt.Dimension(880, 680));
 
         jp_SUIconBackground.setBackground(new java.awt.Color(0, 153, 153));
         jp_SUIconBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -131,8 +153,6 @@ public class GUI extends javax.swing.JFrame
         jl_SUGhostIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ghost.png1.png"))); // NOI18N
         jl_SUGhostIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jp_SUIconBackground.add(jl_SUGhostIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-550, -60, -1, -1));
-
-        jp_SUBackground.add(jp_SUIconBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 680));
 
         jp_SDataBackground.setBackground(new java.awt.Color(204, 204, 204));
         jp_SDataBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -149,7 +169,7 @@ public class GUI extends javax.swing.JFrame
         jl_SUNameLabel.setBackground(new java.awt.Color(51, 51, 51));
         jl_SUNameLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_SUNameLabel.setForeground(new java.awt.Color(51, 51, 51));
-        jl_SUNameLabel.setText("Nombre");
+        jl_SUNameLabel.setText("Name");
         jp_SDataBackground.add(jl_SUNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
         jl_SULoginMenuTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -166,13 +186,13 @@ public class GUI extends javax.swing.JFrame
 
         jl_SUPasswordLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_SUPasswordLabel.setForeground(new java.awt.Color(51, 51, 51));
-        jl_SUPasswordLabel.setText("Contraseña");
+        jl_SUPasswordLabel.setText("Password");
         jp_SDataBackground.add(jl_SUPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
         jp_SDataBackground.add(jtf_SUPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 430, 50));
 
         jp_ToLogPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jl_SUHaveAccount.setText("Ya tienes cuenta?");
+        jl_SUHaveAccount.setText("Already have an account?");
         jp_ToLogPanel.add(jl_SUHaveAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jb_SUGoToLoginButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -184,13 +204,26 @@ public class GUI extends javax.swing.JFrame
                 jb_SUGoToLoginButtonMouseClicked(evt);
             }
         });
-        jp_ToLogPanel.add(jb_SUGoToLoginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        jp_ToLogPanel.add(jb_SUGoToLoginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
-        jp_SDataBackground.add(jp_ToLogPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 600, 200, 40));
+        jp_SDataBackground.add(jp_ToLogPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 600, 250, 40));
 
-        jp_SUBackground.add(jp_SDataBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 550, 680));
+        javax.swing.GroupLayout jp_SUBackgroundLayout = new javax.swing.GroupLayout(jp_SUBackground);
+        jp_SUBackground.setLayout(jp_SUBackgroundLayout);
+        jp_SUBackgroundLayout.setHorizontalGroup(
+            jp_SUBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_SUBackgroundLayout.createSequentialGroup()
+                .addComponent(jp_SUIconBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jp_SDataBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jp_SUBackgroundLayout.setVerticalGroup(
+            jp_SUBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_SUIconBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jp_SDataBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
-        getContentPane().add(jp_SUBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 680));
+        jp_CardHandler.add(jp_SUBackground, "SignUpCard");
 
         jp_LGBackground.setBackground(new java.awt.Color(51, 51, 51));
         jp_LGBackground.setMaximumSize(new java.awt.Dimension(1960, 1080));
@@ -222,7 +255,7 @@ public class GUI extends javax.swing.JFrame
         jl_LGNameLabel.setBackground(new java.awt.Color(51, 51, 51));
         jl_LGNameLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_LGNameLabel.setForeground(new java.awt.Color(51, 51, 51));
-        jl_LGNameLabel.setText("Nombre");
+        jl_LGNameLabel.setText("Name");
         jp_LGDataBackground.add(jl_LGNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
         jl_LGLoginMenuTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -233,13 +266,13 @@ public class GUI extends javax.swing.JFrame
 
         jl_LGPasswordLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_LGPasswordLabel.setForeground(new java.awt.Color(51, 51, 51));
-        jl_LGPasswordLabel.setText("Contraseña");
+        jl_LGPasswordLabel.setText("Password");
         jp_LGDataBackground.add(jl_LGPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
         jp_LGDataBackground.add(jtf_LGPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 430, 50));
 
         jp_LGToSUPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jl_LGCreateAccount.setText("No tienes cuenta?");
+        jl_LGCreateAccount.setText("Don't have an account?");
         jp_LGToSUPanel.add(jl_LGCreateAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jb_LGGoToSUButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -251,13 +284,13 @@ public class GUI extends javax.swing.JFrame
                 jb_LGGoToSUButtonMouseClicked(evt);
             }
         });
-        jp_LGToSUPanel.add(jb_LGGoToSUButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        jp_LGToSUPanel.add(jb_LGGoToSUButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
-        jp_LGDataBackground.add(jp_LGToSUPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 600, 200, 40));
+        jp_LGDataBackground.add(jp_LGToSUPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 600, 240, 40));
 
         jp_LGBackground.add(jp_LGDataBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 550, 680));
 
-        getContentPane().add(jp_LGBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 680));
+        jp_CardHandler.add(jp_LGBackground, "LoginCard");
 
         jp_MainMenu.setMaximumSize(new java.awt.Dimension(1970, 1080));
         jp_MainMenu.setMinimumSize(new java.awt.Dimension(880, 680));
@@ -280,6 +313,11 @@ public class GUI extends javax.swing.JFrame
         jp_MenuPanel.add(jb_PlayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 120, -1));
 
         jb_SettingsButton.setText("Settings");
+        jb_SettingsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_SettingsButtonMouseClicked(evt);
+            }
+        });
         jp_MenuPanel.add(jb_SettingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 120, -1));
 
         jb_ReportsButton.setText("Reports");
@@ -288,22 +326,12 @@ public class GUI extends javax.swing.JFrame
                 jb_ReportsButtonMouseClicked(evt);
             }
         });
-        jb_ReportsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_ReportsButtonActionPerformed(evt);
-            }
-        });
         jp_MenuPanel.add(jb_ReportsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 120, -1));
 
         jb_MyProfileButton.setText("My Profile");
         jb_MyProfileButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jb_MyProfileButtonMouseClicked(evt);
-            }
-        });
-        jb_MyProfileButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_MyProfileButtonActionPerformed(evt);
             }
         });
         jp_MenuPanel.add(jb_MyProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 120, -1));
@@ -328,113 +356,11 @@ public class GUI extends javax.swing.JFrame
                 jb_CloseSessionButtonMouseClicked(evt);
             }
         });
-        jb_CloseSessionButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_CloseSessionButtonActionPerformed(evt);
-            }
-        });
         jp_MenuPanel.add(jb_CloseSessionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 120, -1));
 
         jp_MainMenu.add(jp_MenuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 420, 680));
 
-        getContentPane().add(jp_MainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jp_MyProfilePanel.setBackground(new java.awt.Color(204, 204, 204));
-        jp_MyProfilePanel.setMaximumSize(new java.awt.Dimension(1970, 1080));
-        jp_MyProfilePanel.setMinimumSize(new java.awt.Dimension(880, 512));
-        jp_MyProfilePanel.setPreferredSize(new java.awt.Dimension(880, 515));
-        jp_MyProfilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jp_ProfileSettings.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jl_MyProfileTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jl_MyProfileTitle.setText("My Profile");
-        jp_ProfileSettings.add(jl_MyProfileTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
-
-        jb_BackToMainMenuButton.setText("Back to menu");
-        jb_BackToMainMenuButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_BackToMainMenuButtonMouseClicked(evt);
-            }
-        });
-        jp_ProfileSettings.add(jb_BackToMainMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 130, 50));
-
-        jb_ModifyButton.setText("Modify Profile");
-        jb_ModifyButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_ModifyButtonMouseClicked(evt);
-            }
-        });
-        jb_ModifyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_ModifyButtonActionPerformed(evt);
-            }
-        });
-        jp_ProfileSettings.add(jb_ModifyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 130, 50));
-
-        jb_EraseAccountButton.setText("Erase Account");
-        jb_EraseAccountButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_EraseAccountButtonMouseClicked(evt);
-            }
-        });
-        jp_ProfileSettings.add(jb_EraseAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 130, 50));
-
-        jp_MyProfilePanel.add(jp_ProfileSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 550));
-
-        jp_ModifyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jl_ChangePassTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jl_ChangePassTitle.setText("Change your password");
-        jp_ModifyPanel.add(jl_ChangePassTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
-
-        jl_ChangeNameTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jl_ChangeNameTitle.setText("Change your password");
-        jp_ModifyPanel.add(jl_ChangeNameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
-        jp_ModifyPanel.add(jtf_PassChangerField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, 60));
-        jp_ModifyPanel.add(jtf_NameChangerField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 290, 60));
-
-        jb_UpdateButton.setText("Update");
-        jb_UpdateButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_UpdateButtonMouseClicked(evt);
-            }
-        });
-        jb_UpdateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_UpdateButtonActionPerformed(evt);
-            }
-        });
-        jp_ModifyPanel.add(jb_UpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 110, 50));
-
-        jp_MyProfilePanel.add(jp_ModifyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 440, 500));
-
-        jp_ProfileDataPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jl_UsernameTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jl_UsernameTitle.setText("Player Username");
-        jp_ProfileDataPanel.add(jl_UsernameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 370, 80));
-
-        jl_UsernameGoesHere.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        jp_ProfileDataPanel.add(jl_UsernameGoesHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 300, 70));
-
-        jl_PasswordTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jl_PasswordTitle.setText("Password");
-        jp_ProfileDataPanel.add(jl_PasswordTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 370, 80));
-
-        jl_PasswordGoesHere.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        jp_ProfileDataPanel.add(jl_PasswordGoesHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 300, 70));
-
-        jl_ScoreTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jl_ScoreTitle.setText("Total Player Score");
-        jp_ProfileDataPanel.add(jl_ScoreTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 370, 80));
-
-        jl_ScoreGoesHere.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        jp_ProfileDataPanel.add(jl_ScoreGoesHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 300, 70));
-
-        jp_MyProfilePanel.add(jp_ProfileDataPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 440, 500));
-
-        getContentPane().add(jp_MyProfilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 680));
+        jp_CardHandler.add(jp_MainMenu, "MainMenuCard");
 
         jp_ReportsPanel.setMaximumSize(new java.awt.Dimension(1970, 1080));
         jp_ReportsPanel.setMinimumSize(new java.awt.Dimension(880, 680));
@@ -507,7 +433,202 @@ public class GUI extends javax.swing.JFrame
 
         jp_ReportsPanel.add(jp_10GamesPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 580, 650));
 
-        getContentPane().add(jp_ReportsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 680));
+        jp_CardHandler.add(jp_ReportsPanel, "ReportsCard");
+
+        jp_MyProfilePanel.setBackground(new java.awt.Color(204, 204, 204));
+        jp_MyProfilePanel.setMaximumSize(new java.awt.Dimension(1970, 1080));
+        jp_MyProfilePanel.setMinimumSize(new java.awt.Dimension(880, 680));
+        jp_MyProfilePanel.setPreferredSize(new java.awt.Dimension(880, 680));
+        jp_MyProfilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jp_ProfileSettings.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jl_MyProfileTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jl_MyProfileTitle.setText("My Profile");
+        jp_ProfileSettings.add(jl_MyProfileTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
+
+        jb_BackToMainMenuButton.setText("Back to menu");
+        jb_BackToMainMenuButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_BackToMainMenuButtonMouseClicked(evt);
+            }
+        });
+        jp_ProfileSettings.add(jb_BackToMainMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 130, 50));
+
+        jb_ModifyButton.setText("Modify Profile");
+        jb_ModifyButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_ModifyButtonMouseClicked(evt);
+            }
+        });
+        jb_ModifyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_ModifyButtonActionPerformed(evt);
+            }
+        });
+        jp_ProfileSettings.add(jb_ModifyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 130, 50));
+
+        jb_EraseAccountButton.setText("Erase Account");
+        jb_EraseAccountButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_EraseAccountButtonMouseClicked(evt);
+            }
+        });
+        jp_ProfileSettings.add(jb_EraseAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 130, 50));
+
+        jp_MyProfilePanel.add(jp_ProfileSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 680));
+
+        jp_ModifyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jl_ChangePassTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_ChangePassTitle.setText("Change your password");
+        jp_ModifyPanel.add(jl_ChangePassTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+
+        jl_ChangeNameTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_ChangeNameTitle.setText("Change your password");
+        jp_ModifyPanel.add(jl_ChangeNameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+        jp_ModifyPanel.add(jtf_PassChangerField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, 60));
+        jp_ModifyPanel.add(jtf_NameChangerField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 290, 60));
+
+        jb_UpdateButton.setText("Update");
+        jb_UpdateButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_UpdateButtonMouseClicked(evt);
+            }
+        });
+        jb_UpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_UpdateButtonActionPerformed(evt);
+            }
+        });
+        jp_ModifyPanel.add(jb_UpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 110, 50));
+
+        jp_MyProfilePanel.add(jp_ModifyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 440, 500));
+
+        jp_ProfileDataPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jl_UsernameTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jl_UsernameTitle.setText("Player Username");
+        jp_ProfileDataPanel.add(jl_UsernameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 370, 80));
+
+        jl_UsernameGoesHere.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        jp_ProfileDataPanel.add(jl_UsernameGoesHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 300, 70));
+
+        jl_PasswordTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jl_PasswordTitle.setText("Password");
+        jp_ProfileDataPanel.add(jl_PasswordTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 370, 80));
+
+        jl_PasswordGoesHere.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        jp_ProfileDataPanel.add(jl_PasswordGoesHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 300, 70));
+
+        jl_ScoreTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jl_ScoreTitle.setText("Total Player Score");
+        jp_ProfileDataPanel.add(jl_ScoreTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 370, 80));
+
+        jl_ScoreGoesHere.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        jp_ProfileDataPanel.add(jl_ScoreGoesHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 300, 70));
+
+        jp_MyProfilePanel.add(jp_ProfileDataPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 440, 500));
+
+        jp_CardHandler.add(jp_MyProfilePanel, "ProfileCard");
+
+        jp_SettingsPanel.setBackground(new java.awt.Color(102, 102, 102));
+
+        jl_SettingTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_SettingTitle.setText("SETTINGS");
+
+        jl_DifficultyLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_DifficultyLabel.setText("Difficulty");
+
+        jl_GamemodeLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_GamemodeLabel.setText("Gamemode");
+
+        jcb_DifficultyBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jcb_GamemodebBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jb_SettingBackToMenuButton.setText("Back to menu");
+        jb_SettingBackToMenuButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_SettingBackToMenuButtonMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_SettingsMenuPanelLayout = new javax.swing.GroupLayout(jp_SettingsMenuPanel);
+        jp_SettingsMenuPanel.setLayout(jp_SettingsMenuPanelLayout);
+        jp_SettingsMenuPanelLayout.setHorizontalGroup(
+            jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                .addGroup(jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(jl_SettingTitle))
+                    .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jl_GamemodeLabel)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jl_DifficultyLabel))))
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_SettingsMenuPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jcb_DifficultyBox, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jcb_GamemodebBox, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(jb_SettingBackToMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_SettingsMenuPanelLayout.setVerticalGroup(
+            jp_SettingsMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_SettingsMenuPanelLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jl_SettingTitle)
+                .addGap(47, 47, 47)
+                .addComponent(jl_DifficultyLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jcb_DifficultyBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jl_GamemodeLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jcb_GamemodebBox, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addComponent(jb_SettingBackToMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
+        );
+
+        javax.swing.GroupLayout jp_SettingsPanelLayout = new javax.swing.GroupLayout(jp_SettingsPanel);
+        jp_SettingsPanel.setLayout(jp_SettingsPanelLayout);
+        jp_SettingsPanelLayout.setHorizontalGroup(
+            jp_SettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_SettingsPanelLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(jp_SettingsMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(250, Short.MAX_VALUE))
+        );
+        jp_SettingsPanelLayout.setVerticalGroup(
+            jp_SettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_SettingsMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jp_CardHandler.add(jp_SettingsPanel, "SettingsCard");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_CardHandler, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_CardHandler, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         getAccessibleContext().setAccessibleName("MainFrame");
         getAccessibleContext().setAccessibleParent(this);
@@ -538,9 +659,13 @@ public class GUI extends javax.swing.JFrame
                     
                     JOptionPane.showMessageDialog(this, "Ingresado correctamente.");
                     
+                    /*
                     jp_LGBackground.setVisible(false);
                     jp_MainMenu.setVisible(true);
+                    */
                     
+                    cardLayout.show(jp_CardHandler, "MainMenuCard");
+
                 }else
                 {
                     JOptionPane.showMessageDialog(this, "Contraseña incorrecta.");
@@ -575,10 +700,13 @@ public class GUI extends javax.swing.JFrame
                 p.setLoggedIn(logger.login(nombre, contra));
                 JOptionPane.showMessageDialog(this, "Agregado correctamente.");
 
-                
+                /*
                 jp_SUBackground.setVisible(false);
                 jp_MainMenu.setVisible(true);
+                */
                 
+                cardLayout.show(jp_CardHandler, "MainMenuCard");
+
                 logger.listPlayers();
             }
         }
@@ -586,30 +714,27 @@ public class GUI extends javax.swing.JFrame
 
     private void jb_LGGoToSUButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_LGGoToSUButtonMouseClicked
         // TODO add your handling code here:
+        /*
         jp_LGBackground.setVisible(false);
         jp_SUBackground.setVisible(true);
-
+        */
+        cardLayout.show(jp_CardHandler, "SignUpCard");
     }//GEN-LAST:event_jb_LGGoToSUButtonMouseClicked
 
     private void jb_SUGoToLoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_SUGoToLoginButtonMouseClicked
         // TODO add your handling code here:
+        /*
         jp_LGBackground.setVisible(true);
         jp_SUBackground.setVisible(false);
         jp_LGToSUPanel.setVisible(true);
+        */
+        cardLayout.show(jp_CardHandler, "LoginCard");
 
     }//GEN-LAST:event_jb_SUGoToLoginButtonMouseClicked
 
     private void jb_PlayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_PlayButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_PlayButtonActionPerformed
-
-    private void jb_ReportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ReportsButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_ReportsButtonActionPerformed
-
-    private void jb_MyProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_MyProfileButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_MyProfileButtonActionPerformed
 
     private void jb_ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ExitButtonActionPerformed
         // TODO add your handling code here:
@@ -623,19 +748,19 @@ public class GUI extends javax.swing.JFrame
 
     private void jb_CloseSessionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CloseSessionButtonMouseClicked
         // TODO add your handling code here:
-        
+        /*
         jp_LGBackground.setVisible(true);
         jp_MainMenu.setVisible(false);
+        */
+        
+        cardLayout.show(jp_CardHandler, "SignUpCard");
+
         
         Player p = logger.getLoggedInPlayer();
         p.setLoggedIn(false);
         logger.listPlayers();
         
     }//GEN-LAST:event_jb_CloseSessionButtonMouseClicked
-
-    private void jb_CloseSessionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_CloseSessionButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_CloseSessionButtonActionPerformed
 
     private void jb_ModifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ModifyButtonActionPerformed
         // TODO add your handling code here:
@@ -644,8 +769,13 @@ public class GUI extends javax.swing.JFrame
 
     private void jb_MyProfileButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_MyProfileButtonMouseClicked
         // TODO add your handling code here:
+        /*
         jp_MainMenu.setVisible(false);
         jp_MyProfilePanel.setVisible(true);
+        */
+        
+        cardLayout.show(jp_CardHandler, "ProfileCard");
+
         
         Player p = logger.getLoggedInPlayer();
 
@@ -749,9 +879,14 @@ public class GUI extends javax.swing.JFrame
 
     private void jb_ReportsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ReportsButtonMouseClicked
         // TODO add your handling code here:
+        /*
         jp_MainMenu.setVisible(false);
         jp_ReportsPanel.setVisible(true);
         jp_10GamesPanel.setVisible(false);
+        */
+        
+        cardLayout.show(jp_CardHandler, "ReportsCard");
+
     }//GEN-LAST:event_jb_ReportsButtonMouseClicked
 
     private void jb_RankingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_RankingButtonMouseClicked
@@ -777,6 +912,24 @@ public class GUI extends javax.swing.JFrame
     private void jb_ReportsToMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ReportsToMenuButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_ReportsToMenuButtonActionPerformed
+
+    private void jb_SettingBackToMenuButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_SettingBackToMenuButtonMouseClicked
+        // TODO add your handling code here:
+        cardLayout.show(jp_CardHandler, "MainMenuCard");
+        
+        
+        
+        
+        
+        
+        
+
+    }//GEN-LAST:event_jb_SettingBackToMenuButtonMouseClicked
+
+    private void jb_SettingsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_SettingsButtonMouseClicked
+        // TODO add your handling code here:
+        cardLayout.show(jp_CardHandler, "SettingsCard");
+    }//GEN-LAST:event_jb_SettingsButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -816,6 +969,7 @@ public class GUI extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jb_10GamesButton;
     private javax.swing.JButton jb_BackToMainMenuButton;
     private javax.swing.JButton jb_CloseSessionButton;
@@ -831,10 +985,15 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JButton jb_ReportsToMenuButton;
     private javax.swing.JButton jb_SUGoToLoginButton;
     private javax.swing.JButton jb_SUSignUpButton;
+    private javax.swing.JButton jb_SettingBackToMenuButton;
     private javax.swing.JButton jb_SettingsButton;
     private javax.swing.JButton jb_UpdateButton;
+    private javax.swing.JComboBox<String> jcb_DifficultyBox;
+    private javax.swing.JComboBox<String> jcb_GamemodebBox;
     private javax.swing.JLabel jl_ChangeNameTitle;
     private javax.swing.JLabel jl_ChangePassTitle;
+    private javax.swing.JLabel jl_DifficultyLabel;
+    private javax.swing.JLabel jl_GamemodeLabel;
     private javax.swing.JLabel jl_GhostIcon1;
     private javax.swing.JLabel jl_LGCreateAccount;
     private javax.swing.JLabel jl_LGLoginMenuTitle;
@@ -851,9 +1010,11 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JLabel jl_SUPasswordLabel;
     private javax.swing.JLabel jl_ScoreGoesHere;
     private javax.swing.JLabel jl_ScoreTitle;
+    private javax.swing.JLabel jl_SettingTitle;
     private javax.swing.JLabel jl_UsernameGoesHere;
     private javax.swing.JLabel jl_UsernameTitle;
     private javax.swing.JPanel jp_10GamesPanel;
+    private javax.swing.JPanel jp_CardHandler;
     private javax.swing.JPanel jp_LGBackground;
     private javax.swing.JPanel jp_LGDataBackground;
     private javax.swing.JPanel jp_LGToSUPanel;
@@ -869,6 +1030,8 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JPanel jp_SDataBackground;
     private javax.swing.JPanel jp_SUBackground;
     private javax.swing.JPanel jp_SUIconBackground;
+    private javax.swing.JPanel jp_SettingsMenuPanel;
+    private javax.swing.JPanel jp_SettingsPanel;
     private javax.swing.JPanel jp_ToLogPanel;
     private javax.swing.JTable jt_10GamesTable;
     private javax.swing.JTextField jtf_LGNameField;
