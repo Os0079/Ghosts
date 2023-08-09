@@ -1,6 +1,7 @@
 
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -48,6 +49,9 @@ public class GUI extends javax.swing.JFrame
             gr1[i].setDescription("Este es una prueba! Le has ganado a " + p2.getUsername());
         }
         
+        ImageIcon board = new ImageIcon();
+        System.out.println(board.getIconHeight() + " y " + board.getIconWidth());
+        jl_board.setIcon(board);
         
         //jp_CardHandler.setVisible(true);
         cardLayout.show(jp_CardHandler, "LoginCard");
@@ -155,6 +159,7 @@ public class GUI extends javax.swing.JFrame
         jl_LoggedBadNumber = new javax.swing.JLabel();
         jb_SurrenderButton = new javax.swing.JButton();
         jp_BoardPanel = new javax.swing.JPanel();
+        jl_board = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ghosts");
@@ -807,6 +812,10 @@ public class GUI extends javax.swing.JFrame
 
         jp_BoardPanel.setBackground(new java.awt.Color(102, 102, 102));
         jp_BoardPanel.setForeground(new java.awt.Color(51, 51, 51));
+
+        jl_board.setIcon(new javax.swing.ImageIcon("C:\\Users\\smnsl\\OneDrive\\Documentos\\NetBeansProjects\\Programacion2_Ghosts\\Images\\6x6.png")); // NOI18N
+        jp_BoardPanel.add(jl_board);
+
         jsp_GamePanel.setRightComponent(jp_BoardPanel);
 
         jp_CardHandler.add(jsp_GamePanel, "GameCard");
@@ -1228,6 +1237,7 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JLabel jl_UsernameTitle;
     private javax.swing.JLabel jl_You;
     private javax.swing.JLabel jl_YourBadGhosts;
+    private javax.swing.JLabel jl_board;
     private javax.swing.JPanel jp_10GamesPanel;
     private javax.swing.JPanel jp_BoardPanel;
     private javax.swing.JPanel jp_BoardSidebar;
