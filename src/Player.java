@@ -14,7 +14,7 @@ public class Player
     private String password;
     private int playerScore;
     private boolean loggedIn;
-    private Game[] gameReports;
+    private GhostGame[] gameReports;
 
     // Contructor
     public Player(String username, String password)
@@ -22,7 +22,7 @@ public class Player
         this.username = username;
         this.password = password;
         playerScore = 0;
-        gameReports = new Game[10];
+        gameReports = new GhostGame[10];
         loggedIn = false;
     }
     
@@ -53,12 +53,12 @@ public class Player
         this.playerScore+= playerScore;
     }
 
-    public Game[] getGameReports() 
+    public GhostGame[] getGameReports() 
     {
         return gameReports;
     }
 
-    public void addGameReport(Game game)
+    public void addGameReport(GhostGame game)
     {
         for (int i = 0; i < gameReports.length; i++)
         {

@@ -41,10 +41,10 @@ public class GUI extends javax.swing.JFrame
         logger.addPlayer(p2);
         p1.setPlayerScore(123);
         p2.setPlayerScore(123);
-        Game[] gr1 = p1.getGameReports();
+        GhostGame[] gr1 = p1.getGameReports();
         for (int i = 0; i < gr1.length; i++)
         {
-            gr1[i] = new Game(3, p2.getUsername(), true);
+            gr1[i] = new GhostGame(3, p2.getUsername(), true);
             gr1[i].setDescription("Este es una prueba! Le has ganado a " + p2.getUsername());
         }
         
