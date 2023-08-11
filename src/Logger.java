@@ -10,6 +10,11 @@ import java.util.ArrayList;
  *
  * @author smnsl
  */
+
+/*
+    Recursiva en getLoggedInPlayer - 88
+*/
+
 public class Logger
 {
     //Atributes
@@ -79,6 +84,25 @@ public class Logger
         }
         return null;
     }
+    
+    /*
+    public Player getLoggedInPlayer()
+    {
+        return getLoggedInPlayer(0);
+    }
+    
+    private Player getLoggedInPlayer(int i)  //Recursiva
+    {
+        Player player = players.get(i);
+        if (player.isLoggedIn()) 
+        {
+            return player;
+        }else
+        {
+            return getLoggedInPlayer(i++);
+        }
+    }
+    */
     public void listPlayers()
     {
         String data = "------ Lista de jugadores ------\n";
@@ -90,4 +114,6 @@ public class Logger
         
         System.out.println(data);
     }
+    
+    
 }

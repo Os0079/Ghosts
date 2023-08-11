@@ -98,7 +98,7 @@
                 <Component class="javax.swing.JLabel" name="jl_SUGhostIcon">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/ghost.png1.png"/>
+                      <Image iconType="2" name="C:\Users\smnsl\OneDrive\Documentos\NetBeansProjects\Programacion2_Ghosts\Images\ghost.png"/>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Default Cursor"/>
@@ -298,7 +298,7 @@
                 <Component class="javax.swing.JLabel" name="jl_GhostIcon1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/ghost.png1.png"/>
+                      <Image iconType="2" name="C:\Users\smnsl\OneDrive\Documentos\NetBeansProjects\Programacion2_Ghosts\Images\ghost.png"/>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Default Cursor"/>
@@ -512,6 +512,7 @@
                     <Property name="text" type="java.lang.String" value="Play"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_PlayButtonMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_PlayButtonActionPerformed"/>
                   </Events>
                   <Constraints>
@@ -1463,6 +1464,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="SURRENDER"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_SurrenderButtonMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

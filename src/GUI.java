@@ -23,6 +23,7 @@ public class GUI extends javax.swing.JFrame
     CardLayout cardLayout;
     public GUI() 
     {
+        
         initComponents();
         
         
@@ -179,7 +180,7 @@ public class GUI extends javax.swing.JFrame
         jp_SUIconBackground.setBackground(new java.awt.Color(0, 153, 153));
         jp_SUIconBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jl_SUGhostIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ghost.png1.png"))); // NOI18N
+        jl_SUGhostIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\smnsl\\OneDrive\\Documentos\\NetBeansProjects\\Programacion2_Ghosts\\Images\\ghost.png")); // NOI18N
         jl_SUGhostIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jp_SUIconBackground.add(jl_SUGhostIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-550, -60, -1, -1));
 
@@ -263,7 +264,7 @@ public class GUI extends javax.swing.JFrame
         jp_LIconBackground.setBackground(new java.awt.Color(0, 153, 153));
         jp_LIconBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jl_GhostIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ghost.png1.png"))); // NOI18N
+        jl_GhostIcon1.setIcon(new javax.swing.ImageIcon("C:\\Users\\smnsl\\OneDrive\\Documentos\\NetBeansProjects\\Programacion2_Ghosts\\Images\\ghost.png")); // NOI18N
         jl_GhostIcon1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jp_LIconBackground.add(jl_GhostIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-550, -60, -1, -1));
 
@@ -334,6 +335,11 @@ public class GUI extends javax.swing.JFrame
         jp_MenuPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
         jb_PlayButton.setText("Play");
+        jb_PlayButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_PlayButtonMouseClicked(evt);
+            }
+        });
         jb_PlayButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_PlayButtonActionPerformed(evt);
@@ -704,6 +710,11 @@ public class GUI extends javax.swing.JFrame
 
         jb_SurrenderButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jb_SurrenderButton.setText("SURRENDER");
+        jb_SurrenderButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_SurrenderButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_BoardSidebarLayout = new javax.swing.GroupLayout(jp_BoardSidebar);
         jp_BoardSidebar.setLayout(jp_BoardSidebarLayout);
@@ -1081,8 +1092,9 @@ public class GUI extends javax.swing.JFrame
                 rowData[0] = p.getGameReports()[i].getDescription();
 
                 tblm.addRow(rowData);
-                alreadyInTable = true;
             }
+            alreadyInTable = true;
+
         }
             
         
@@ -1095,7 +1107,7 @@ public class GUI extends javax.swing.JFrame
         jp_ReportsPanel.setVisible(true);
         jp_10GamesPanel.setVisible(false);
         */
-        
+        jp_10GamesPanel.setVisible(false);
         cardLayout.show(jp_CardHandler, "ReportsCard");
 
     }//GEN-LAST:event_jb_ReportsButtonMouseClicked
@@ -1141,6 +1153,17 @@ public class GUI extends javax.swing.JFrame
         // TODO add your handling code here:
         cardLayout.show(jp_CardHandler, "SettingsCard");
     }//GEN-LAST:event_jb_SettingsButtonMouseClicked
+
+    private void jb_SurrenderButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_SurrenderButtonMouseClicked
+        // TODO add your handling code here:
+        cardLayout.show(jp_CardHandler, "MainMenuCard");
+        
+    }//GEN-LAST:event_jb_SurrenderButtonMouseClicked
+
+    private void jb_PlayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_PlayButtonMouseClicked
+        // TODO add your handling code here:
+        cardLayout.show(jp_CardHandler, "GameCard");
+    }//GEN-LAST:event_jb_PlayButtonMouseClicked
 
     /**
      * @param args the command line arguments

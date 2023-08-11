@@ -7,6 +7,9 @@
  *
  * @author smnsl
  */
+
+import java.util.Arrays;
+
 public class Player 
 {
     // Atributes
@@ -67,9 +70,14 @@ public class Player
                 gameReports[i] = game;
             } else
             {
-                
+                GhostGame[] temp = new GhostGame[gameReports.length];
+                if (gameReports[i++] != null)
+                {
+                    temp[i] = gameReports[i++];
+                }
             }
         }
+        
     }
     
     
