@@ -847,6 +847,8 @@ public class GUI extends javax.swing.JFrame
 
         jp_BoardPanel.setBackground(new java.awt.Color(102, 102, 102));
         jp_BoardPanel.setForeground(new java.awt.Color(51, 51, 51));
+        jp_BoardPanel.setMinimumSize(new java.awt.Dimension(700, 680));
+        jp_BoardPanel.setPreferredSize(new java.awt.Dimension(700, 680));
         jsp_GamePanel.setRightComponent(jp_BoardPanel);
 
         jp_CardHandler.add(jsp_GamePanel, "GameCard");
@@ -1098,7 +1100,7 @@ public class GUI extends javax.swing.JFrame
         DefaultTableModel tblm = (DefaultTableModel) jt_10GamesTable.getModel();
         
         
-        if (!alreadyInTable) 
+        if (!RalreadyInTable) 
         {
             for (int i = 0; i < p.getGameReports().length; i++)
             {
@@ -1112,7 +1114,7 @@ public class GUI extends javax.swing.JFrame
                     tblm.addRow(rowData);
                 }
             }
-            alreadyInTable = true;
+            RalreadyInTable = true;
 
         }
             
@@ -1157,7 +1159,7 @@ public class GUI extends javax.swing.JFrame
         Object rowData[] = new Object[1];
         DefaultTableModel tblm = (DefaultTableModel) jt_LeaderboardsTable.getModel();
 
-        if (!alreadyInTable) 
+        if (!LalreadyInTable) 
         {
             for (int i = 0; i < sortedPlayers.size() ; i++) 
             {
@@ -1171,7 +1173,7 @@ public class GUI extends javax.swing.JFrame
                     tblm.addRow(rowData);
                 }
             }
-            alreadyInTable = true;
+            LalreadyInTable = true;
 
         }
         
@@ -1193,6 +1195,8 @@ public class GUI extends javax.swing.JFrame
         // TODO add your handling code here:
         cardLayout.show(jp_CardHandler, "MainMenuCard");
         
+        String diff = jcb_DifficultyBox.getSelectedItem().toString();
+        String gameMode = jcb_GamemodebBox.getSelectedItem().toString();
         
         
         
@@ -1366,7 +1370,8 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JTextField jtf_SUPasswordField;
     // End of variables declaration//GEN-END:variables
     Logger logger = new Logger();
-    boolean alreadyInTable = false;
+    boolean RalreadyInTable = false;
+    boolean LalreadyInTable = false;
     //ArrayList<Player> Players = new ArrayList<>(); 
     
     
@@ -1382,7 +1387,7 @@ public class GUI extends javax.swing.JFrame
         GhostGame[] gr1 = p1.getGameReports();
         for (int i = 0; i < gr1.length; i++)
         {
-            GhostGame gr = new GhostGame(3, p2.getUsername(), true);
+            GhostGame gr = new GhostGame(p2.getUsername(), true, Difficulty.GENIUS, "MANUAL");
             gr.setDescription("Este es una prueba! Le has ganado a " + p2.getUsername());
             p1.addGameReport(gr);
         }

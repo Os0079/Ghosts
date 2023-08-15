@@ -14,14 +14,17 @@ public class GhostGame
     private String enemyPlayer;
     private boolean won;
     private String description;
-    
+    private Difficulty difficulty;
+    private String gameType;
     
     // Constructor
-    public GhostGame(int puntaje, String enemigo, boolean gano) 
+    public GhostGame(String enemigo, boolean gano, Difficulty diff, String gameType) 
     {
-        GameScore = puntaje;
+        GameScore = 3;
         enemyPlayer = enemigo;
         won = gano;
+        difficulty = diff;
+        this.gameType = gameType;
     }
 
     
@@ -44,6 +47,22 @@ public class GhostGame
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getGameType() {
+        return gameType;
+    }
+
+    public void setGameType(String gameType) {
+        this.gameType = gameType;
     }
     
     
