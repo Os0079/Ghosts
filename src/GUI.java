@@ -1,7 +1,11 @@
 
 import java.awt.CardLayout;
+import java.awt.Container;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -111,6 +115,9 @@ public class GUI extends javax.swing.JFrame
         jb_RankingButton = new javax.swing.JButton();
         jb_10GamesButton = new javax.swing.JButton();
         jb_ReportsToMenuButton = new javax.swing.JButton();
+        jp_LeaderBoards = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_LeaderboardsTable = new javax.swing.JTable();
         jp_10GamesPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_10GamesTable = new javax.swing.JTable();
@@ -151,7 +158,6 @@ public class GUI extends javax.swing.JFrame
         jl_LoggedBadNumber = new javax.swing.JLabel();
         jb_SurrenderButton = new javax.swing.JButton();
         jp_BoardPanel = new javax.swing.JPanel();
-        jl_board = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ghosts");
@@ -169,7 +175,7 @@ public class GUI extends javax.swing.JFrame
 
         jl_SUGhostIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\smnsl\\OneDrive\\Documentos\\NetBeansProjects\\Programacion2_Ghosts\\Images\\ghost.png")); // NOI18N
         jl_SUGhostIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jp_SUIconBackground.add(jl_SUGhostIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-550, -60, -1, -1));
+        jp_SUIconBackground.add(jl_SUGhostIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-260, 0, -1, -1));
 
         jp_SDataBackground.setBackground(new java.awt.Color(204, 204, 204));
         jp_SDataBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -253,7 +259,7 @@ public class GUI extends javax.swing.JFrame
 
         jl_GhostIcon1.setIcon(new javax.swing.ImageIcon("C:\\Users\\smnsl\\OneDrive\\Documentos\\NetBeansProjects\\Programacion2_Ghosts\\Images\\ghost.png")); // NOI18N
         jl_GhostIcon1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jp_LIconBackground.add(jl_GhostIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-550, -60, -1, -1));
+        jp_LIconBackground.add(jl_GhostIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-260, 60, -1, -1));
 
         jp_LGBackground.add(jp_LIconBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 680));
 
@@ -325,11 +331,6 @@ public class GUI extends javax.swing.JFrame
         jb_PlayButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jb_PlayButtonMouseClicked(evt);
-            }
-        });
-        jb_PlayButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_PlayButtonActionPerformed(evt);
             }
         });
         jp_MenuPanel.add(jb_PlayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 120, -1));
@@ -510,6 +511,43 @@ public class GUI extends javax.swing.JFrame
 
         jp_ReportsPanel.add(jp_ReportsMenuBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 220, 690));
 
+        jt_LeaderboardsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Rankings"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jt_LeaderboardsTable);
+
+        javax.swing.GroupLayout jp_LeaderBoardsLayout = new javax.swing.GroupLayout(jp_LeaderBoards);
+        jp_LeaderBoards.setLayout(jp_LeaderBoardsLayout);
+        jp_LeaderBoardsLayout.setHorizontalGroup(
+            jp_LeaderBoardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_LeaderBoardsLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+        jp_LeaderBoardsLayout.setVerticalGroup(
+            jp_LeaderBoardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_LeaderBoardsLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+
+        jp_ReportsPanel.add(jp_LeaderBoards, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 600, 670));
+
         jp_10GamesPanel.setBackground(new java.awt.Color(102, 102, 102));
         jp_10GamesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -557,7 +595,7 @@ public class GUI extends javax.swing.JFrame
                 jb_BackToMainMenuButtonMouseClicked(evt);
             }
         });
-        jp_ProfileSettings.add(jb_BackToMainMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 130, 50));
+        jp_ProfileSettings.add(jb_BackToMainMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 150, 50));
 
         jb_ChangePasswordButton.setText("Change Password");
         jb_ChangePasswordButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -570,7 +608,7 @@ public class GUI extends javax.swing.JFrame
                 jb_ChangePasswordButtonActionPerformed(evt);
             }
         });
-        jp_ProfileSettings.add(jb_ChangePasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 130, 50));
+        jp_ProfileSettings.add(jb_ChangePasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 150, 50));
 
         jb_EraseAccountButton.setText("Erase Account");
         jb_EraseAccountButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -583,7 +621,7 @@ public class GUI extends javax.swing.JFrame
                 jb_EraseAccountButtonActionPerformed(evt);
             }
         });
-        jp_ProfileSettings.add(jb_EraseAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 130, 50));
+        jp_ProfileSettings.add(jb_EraseAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 150, 50));
 
         jp_MyProfilePanel.add(jp_ProfileSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 680));
 
@@ -785,7 +823,7 @@ public class GUI extends javax.swing.JFrame
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90)
                 .addComponent(jb_SurrenderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jp_BoardSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_BoardSidebarLayout.createSequentialGroup()
@@ -809,10 +847,6 @@ public class GUI extends javax.swing.JFrame
 
         jp_BoardPanel.setBackground(new java.awt.Color(102, 102, 102));
         jp_BoardPanel.setForeground(new java.awt.Color(51, 51, 51));
-
-        jl_board.setIcon(new javax.swing.ImageIcon("C:\\Users\\smnsl\\OneDrive\\Documentos\\NetBeansProjects\\Programacion2_Ghosts\\Images\\6x6.png")); // NOI18N
-        jp_BoardPanel.add(jl_board);
-
         jsp_GamePanel.setRightComponent(jp_BoardPanel);
 
         jp_CardHandler.add(jsp_GamePanel, "GameCard");
@@ -929,10 +963,6 @@ public class GUI extends javax.swing.JFrame
         cardLayout.show(jp_CardHandler, "LoginCard");
 
     }//GEN-LAST:event_jb_SUGoToLoginButtonMouseClicked
-
-    private void jb_PlayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_PlayButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_PlayButtonActionPerformed
 
     private void jb_ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ExitButtonActionPerformed
         // TODO add your handling code here:
@@ -1056,6 +1086,7 @@ public class GUI extends javax.swing.JFrame
 
     private void jb_10GamesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_10GamesButtonMouseClicked
         // TODO add your handling code here:
+        jp_LeaderBoards.setVisible(false);
         jp_ReportsPanel.setVisible(true);
         jp_10GamesPanel.setVisible(true);
         Player p = logger.getLoggedInPlayer();
@@ -1096,6 +1127,7 @@ public class GUI extends javax.swing.JFrame
         jp_10GamesPanel.setVisible(false);
         */
         jp_10GamesPanel.setVisible(false);
+        jp_LeaderBoards.setVisible(false);
         cardLayout.show(jp_CardHandler, "ReportsCard");
        
         
@@ -1109,9 +1141,39 @@ public class GUI extends javax.swing.JFrame
         // TODO add your handling code here:
         jp_10GamesPanel.setVisible(false);
         jp_ReportsPanel.setVisible(true);
+        jp_LeaderBoards.setVisible(true);
         
+        ArrayList<Player> sortedPlayers = logger.getPlayers();
         
-        
+        Collections.sort(sortedPlayers, new Comparator<Player>()
+        {
+            public int compare(Player p1, Player p2)
+            {
+                return Integer.valueOf(p2.getPlayerScore()).compareTo(p1.getPlayerScore());
+            }
+        }
+        );
+       
+        Object rowData[] = new Object[1];
+        DefaultTableModel tblm = (DefaultTableModel) jt_LeaderboardsTable.getModel();
+
+        if (!alreadyInTable) 
+        {
+            for (int i = 0; i < sortedPlayers.size() ; i++) 
+            {
+                if (sortedPlayers.get(0) == null) 
+                {
+                    JOptionPane.showMessageDialog(this, "No players with points.", "Error", JOptionPane.OK_OPTION);
+                    break;
+                } else 
+                {
+                    rowData[0] = sortedPlayers.get(i).getUsername() + "\t\tScore: " + sortedPlayers.get(i).getPlayerScore();
+                    tblm.addRow(rowData);
+                }
+            }
+            alreadyInTable = true;
+
+        }
         
         
     }//GEN-LAST:event_jb_RankingButtonMouseClicked
@@ -1120,6 +1182,7 @@ public class GUI extends javax.swing.JFrame
         // TODO add your handling code here:
         jp_MainMenu.setVisible(true);
         jp_ReportsPanel.setVisible(false);
+        jp_LeaderBoards.setVisible(false);
         //jp_ReportsMenuBG.setVisible(false);
         //jp_10GamesPanel.setVisible(false);
         
@@ -1153,11 +1216,16 @@ public class GUI extends javax.swing.JFrame
     private void jb_PlayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_PlayButtonMouseClicked
         // TODO add your handling code here:
         cardLayout.show(jp_CardHandler, "GameCard");
+        
+        
+        
+        /*
         Player p2 = logger.getLoggedInPlayer();
         GhostGame gg;
         gg = new GhostGame(0, p2.getUsername(), false);
         gg.setDescription("GGs. Perdiste contra " + p2.getUsername());
         p2.addGameReport(gg);
+        */
     }//GEN-LAST:event_jb_PlayButtonMouseClicked
 
     private void jb_EraseAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_EraseAccountButtonActionPerformed
@@ -1206,6 +1274,7 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JLabel JL_YourGoodGhosts;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1264,7 +1333,6 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JLabel jl_UsernameTitle;
     private javax.swing.JLabel jl_You;
     private javax.swing.JLabel jl_YourBadGhosts;
-    private javax.swing.JLabel jl_board;
     private javax.swing.JPanel jp_10GamesPanel;
     private javax.swing.JPanel jp_BoardPanel;
     private javax.swing.JPanel jp_BoardSidebar;
@@ -1273,6 +1341,7 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JPanel jp_LGDataBackground;
     private javax.swing.JPanel jp_LGToSUPanel;
     private javax.swing.JPanel jp_LIconBackground;
+    private javax.swing.JPanel jp_LeaderBoards;
     private javax.swing.JPanel jp_MainMenu;
     private javax.swing.JPanel jp_MenuPanel;
     private javax.swing.JPanel jp_ModifyPanel;
@@ -1289,6 +1358,7 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JPanel jp_ToLogPanel;
     private javax.swing.JSplitPane jsp_GamePanel;
     private javax.swing.JTable jt_10GamesTable;
+    private javax.swing.JTable jt_LeaderboardsTable;
     private javax.swing.JTextField jtf_LGNameField;
     private javax.swing.JTextField jtf_LGPasswordField;
     private javax.swing.JTextField jtf_PassChangerField;

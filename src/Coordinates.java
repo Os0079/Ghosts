@@ -9,21 +9,33 @@
  */
 public class Coordinates
 {
-    private double x;
-    private double y;
+    private int x;
+    private int y;
 
-    public Coordinates(double x, double y) {
+    public Coordinates(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public double getX() {
+    public int getX() {
         return x;
     }
 
-    public double getY() {
+    public int getY() {
         return y;
     }
+
+    public void setX(int x)
+    {
+        this.x = x;
+    }
+
+    public void setY(int y)
+    {
+        this.y = y;
+    }
+    
+    
 
     @Override
     public String toString() {

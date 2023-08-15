@@ -9,15 +9,11 @@
  */
 public class EvilGhost extends Ghost
 {
-    private String filePath = "C:\\Users\\smnsl\\OneDrive\\Documentos\\NetBeansProjects\\Programacion2_Ghosts\\Images\\EvilGhost.png";
-    
-    public EvilGhost()
+    private boolean moved;
+
+    public EvilGhost(Coordinates coords, String filePath, Board board) 
     {
-        super("Evil", true, null);
-    }
-    
-    public String getFilePath()
-    {
-        return filePath;
+        super("EVIL", coords, filePath, board);
+        moved = false;
     }
 }

@@ -43,7 +43,7 @@ public class Logger
         players.add(player);
     }
     
-    
+    /*
     public Player search(String username)
     {
         for (Player p: players)
@@ -55,9 +55,9 @@ public class Logger
         }
         return null;
         
-    }
+    }*/
     
-    /*
+    
     public Player search( String username )
     {
         Player p;
@@ -76,7 +76,7 @@ public class Logger
         }
         return recSearch( players, size - 1, username );
     }
-    */
+    
     
     
     public boolean login(String username, String password) 

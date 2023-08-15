@@ -9,15 +9,11 @@
  */
 public class DecoyGhost extends Ghost
 {
-    private String filePath = "";
-    
-    public DecoyGhost()
+    private boolean moved;
+
+    public DecoyGhost(Coordinates coords, String filePath, Board board)
     {
-        super("Decoy", true, null);
-    }
-    
-    public String getFilePath()
-    {
-        return filePath;
+        super("GOOD", coords, filePath, board);
+        moved = false;
     }
 }

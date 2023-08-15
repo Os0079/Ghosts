@@ -10,14 +10,18 @@
 public abstract class Ghost
 {
     private String ghostType;
-    private boolean alive;
     private Coordinates coords;
-
-    public Ghost(String ghostType, boolean alive, Coordinates coords) 
+    private String file_path;
+    public Board board;
+    
+    
+    public Ghost(String ghostType, Coordinates coords, String file_path, Board board) 
     {
         this.ghostType = ghostType;
-        this.alive = alive;
         this.coords = coords;
+        this.file_path = file_path;
+        this.board = board;
+        
     }
 
     public String getGhostType() {
@@ -28,14 +32,6 @@ public abstract class Ghost
         this.ghostType = ghostType;
     }
 
-    public boolean isAlive() {
-        return alive;
-    }
-
-    public void setAlive(boolean alive) {
-        this.alive = alive;
-    }
-
     public Coordinates getCoords() {
         return coords;
     }
@@ -44,6 +40,19 @@ public abstract class Ghost
         this.coords = coords;
     }
     
+    public boolean canMove(int Xdestination, int Ydestination)
+    {
+        return false;
+    }
     
-    public abstract String getFilePath();
+    public String getFilePath()
+    {
+        return file_path;
+    }
+    
+    public void setFilePath(String path)
+    {
+        this.file_path = path;
+    }
+    
 }
