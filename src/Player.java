@@ -1,3 +1,6 @@
+
+import java.util.Arrays;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -8,7 +11,7 @@
  * @author smnsl
  */
 
-import java.util.Arrays;
+
 
 public class Player 
 {
@@ -63,20 +66,25 @@ public class Player
 
     public void addGameReport(GhostGame game)
     {
-        for (int i = 0; i < gameReports.length; i++)
+        for (int i = 0; i < gameReports.length ; i++)
         {
             if (gameReports[i] == null)
             {
                 gameReports[i] = game;
+                break;
             } else
             {
-                GhostGame[] temp = new GhostGame[gameReports.length];
-                if (gameReports[i++] != null)
+                for (int j = gameReports.length - 1 ; j > 0; j--) 
                 {
-                    temp[i] = gameReports[i++];
+                    gameReports[j] = gameReports[j - 1];
                 }
+                gameReports[0] = game;
+                break;
             }
         }
+        
+        
+        System.out.println("Games: " + Arrays.toString(gameReports));
         
     }
     

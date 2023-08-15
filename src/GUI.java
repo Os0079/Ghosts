@@ -1065,12 +1065,13 @@ public class GUI extends javax.swing.JFrame
          
         Object rowData[] = new Object[1];
         DefaultTableModel tblm = (DefaultTableModel) jt_10GamesTable.getModel();
-
+        
+        
         if (!alreadyInTable) 
         {
             for (int i = 0; i < p.getGameReports().length; i++)
             {
-                if (p.getGameReports()[i] == null)
+                if (p.getGameReports()[0] == null)
                 {
                     JOptionPane.showMessageDialog(this, "This player does not have any game reports.", "Error", JOptionPane.OK_OPTION);
                     break;
@@ -1096,12 +1097,7 @@ public class GUI extends javax.swing.JFrame
         */
         jp_10GamesPanel.setVisible(false);
         cardLayout.show(jp_CardHandler, "ReportsCard");
-        
-        Player p = logger.getLoggedInPlayer();
-
-        //jt_10GamesTable.setModel(new DefaultTableModel(null, new String[]{"Game Description"}));
-        /*rowData[0] = "";
-                    tblm.addRow(rowData);*/
+       
         
         
         
@@ -1157,6 +1153,11 @@ public class GUI extends javax.swing.JFrame
     private void jb_PlayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_PlayButtonMouseClicked
         // TODO add your handling code here:
         cardLayout.show(jp_CardHandler, "GameCard");
+        Player p2 = logger.getLoggedInPlayer();
+        GhostGame gg;
+        gg = new GhostGame(0, p2.getUsername(), false);
+        gg.setDescription("GGs. Perdiste contra " + p2.getUsername());
+        p2.addGameReport(gg);
     }//GEN-LAST:event_jb_PlayButtonMouseClicked
 
     private void jb_EraseAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_EraseAccountButtonActionPerformed
@@ -1307,10 +1308,13 @@ public class GUI extends javax.swing.JFrame
         logger.addPlayer(p2);
         p1.setPlayerScore(115);
         p2.setPlayerScore(935);
+        GhostGame gg;
         GhostGame[] gr1 = p1.getGameReports();
-        for (int i = 0; i < gr1.length; i++) {
-            gr1[i] = new GhostGame(3, p2.getUsername(), true);
-            gr1[i].setDescription("Este es una prueba! Le has ganado a " + p2.getUsername());
+        for (int i = 0; i < gr1.length; i++)
+        {
+            GhostGame gr = new GhostGame(3, p2.getUsername(), true);
+            gr.setDescription("Este es una prueba! Le has ganado a " + p2.getUsername());
+            p1.addGameReport(gr);
         }
     }
 }

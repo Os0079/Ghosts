@@ -129,16 +129,10 @@ public class Logger
     public void listPlayers()
     {
         String data = "------ Lista de jugadores ------\n";
-        //String games = "";
-        //GhostGame[] gr;
-        //int i = 0;
+        int i = 0;
         for (Player p : players)
         {   
-            
-            //gr = p.getGameReports();
             data += "Jugador: " + p.getUsername() + "\tLogged In: " + p.isLoggedIn() + "\n";
-            //games += "Juego " + gr[i].getDescription();
-            //i++;
         }
         
         System.out.println(data);
