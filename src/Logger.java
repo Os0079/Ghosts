@@ -43,6 +43,7 @@ public class Logger
         players.add(player);
     }
     
+    
     public Player search(String username)
     {
         for (Player p: players)
@@ -56,10 +57,31 @@ public class Logger
         
     }
     
+    /*
+    public Player search( String username )
+    {
+        Player p;
+        p = recSearch( players, players.size(), username );
+        return p;
+    }
+    
+    private Player recSearch(ArrayList<Player> players, int size, String username ) 
+    {
+        if ( size == 0 )
+        {
+            return null;
+        } else if ( players.get( size - 1 ).getUsername().equals( username ) )
+        {
+            return players.get(size - 1);
+        }
+        return recSearch( players, size - 1, username );
+    }
+    */
+    
     
     public boolean login(String username, String password) 
     {
-        Player p = search(username);
+        Player p = search( username );
         
         if (p != null)
         {
@@ -76,7 +98,8 @@ public class Logger
     
     public Player getLoggedInPlayer() //posible recursiva?
     {
-        for (Player player : players) {
+        for (Player player : players)
+        {
             if (player.isLoggedIn())
             {
                 return player;
@@ -106,10 +129,16 @@ public class Logger
     public void listPlayers()
     {
         String data = "------ Lista de jugadores ------\n";
-        
+        //String games = "";
+        //GhostGame[] gr;
+        //int i = 0;
         for (Player p : players)
-        {
+        {   
+            
+            //gr = p.getGameReports();
             data += "Jugador: " + p.getUsername() + "\tLogged In: " + p.isLoggedIn() + "\n";
+            //games += "Juego " + gr[i].getDescription();
+            //i++;
         }
         
         System.out.println(data);

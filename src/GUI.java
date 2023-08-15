@@ -25,7 +25,7 @@ public class GUI extends javax.swing.JFrame
     {
         
         initComponents();
-        
+        initTestPlayers();
         
         cardLayout = (CardLayout) (jp_CardHandler.getLayout());
         
@@ -37,18 +37,7 @@ public class GUI extends javax.swing.JFrame
         */
         
         
-        Player p1 = new Player("Dumy1", "Test1");
-        Player p2 = new Player("Dumy2", "Test2");
-        logger.addPlayer(p1);
-        logger.addPlayer(p2);
-        p1.setPlayerScore(123);
-        p2.setPlayerScore(123);
-        GhostGame[] gr1 = p1.getGameReports();
-        for (int i = 0; i < gr1.length; i++)
-        {
-            gr1[i] = new GhostGame(3, p2.getUsername(), true);
-            gr1[i].setDescription("Este es una prueba! Le has ganado a " + p2.getUsername());
-        }
+        
         
         
         /*
@@ -129,13 +118,11 @@ public class GUI extends javax.swing.JFrame
         jp_ProfileSettings = new javax.swing.JPanel();
         jl_MyProfileTitle = new javax.swing.JLabel();
         jb_BackToMainMenuButton = new javax.swing.JButton();
-        jb_ModifyButton = new javax.swing.JButton();
+        jb_ChangePasswordButton = new javax.swing.JButton();
         jb_EraseAccountButton = new javax.swing.JButton();
         jp_ModifyPanel = new javax.swing.JPanel();
         jl_ChangePassTitle = new javax.swing.JLabel();
-        jl_ChangeNameTitle = new javax.swing.JLabel();
         jtf_PassChangerField = new javax.swing.JTextField();
-        jtf_NameChangerField = new javax.swing.JTextField();
         jb_UpdateButton = new javax.swing.JButton();
         jp_ProfileDataPanel = new javax.swing.JPanel();
         jl_UsernameTitle = new javax.swing.JLabel();
@@ -519,11 +506,6 @@ public class GUI extends javax.swing.JFrame
                 jb_ReportsToMenuButtonMouseClicked(evt);
             }
         });
-        jb_ReportsToMenuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_ReportsToMenuButtonActionPerformed(evt);
-            }
-        });
         jp_ReportsMenuBG.add(jb_ReportsToMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 120, 50));
 
         jp_ReportsPanel.add(jp_ReportsMenuBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 220, 690));
@@ -575,20 +557,20 @@ public class GUI extends javax.swing.JFrame
                 jb_BackToMainMenuButtonMouseClicked(evt);
             }
         });
-        jp_ProfileSettings.add(jb_BackToMainMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 130, 50));
+        jp_ProfileSettings.add(jb_BackToMainMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 130, 50));
 
-        jb_ModifyButton.setText("Modify Profile");
-        jb_ModifyButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        jb_ChangePasswordButton.setText("Change Password");
+        jb_ChangePasswordButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_ModifyButtonMouseClicked(evt);
+                jb_ChangePasswordButtonMouseClicked(evt);
             }
         });
-        jb_ModifyButton.addActionListener(new java.awt.event.ActionListener() {
+        jb_ChangePasswordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_ModifyButtonActionPerformed(evt);
+                jb_ChangePasswordButtonActionPerformed(evt);
             }
         });
-        jp_ProfileSettings.add(jb_ModifyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 130, 50));
+        jp_ProfileSettings.add(jb_ChangePasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 130, 50));
 
         jb_EraseAccountButton.setText("Erase Account");
         jb_EraseAccountButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -596,7 +578,12 @@ public class GUI extends javax.swing.JFrame
                 jb_EraseAccountButtonMouseClicked(evt);
             }
         });
-        jp_ProfileSettings.add(jb_EraseAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 130, 50));
+        jb_EraseAccountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_EraseAccountButtonActionPerformed(evt);
+            }
+        });
+        jp_ProfileSettings.add(jb_EraseAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 130, 50));
 
         jp_MyProfilePanel.add(jp_ProfileSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 680));
 
@@ -604,13 +591,8 @@ public class GUI extends javax.swing.JFrame
 
         jl_ChangePassTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_ChangePassTitle.setText("Change your password");
-        jp_ModifyPanel.add(jl_ChangePassTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
-
-        jl_ChangeNameTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jl_ChangeNameTitle.setText("Change your password");
-        jp_ModifyPanel.add(jl_ChangeNameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
-        jp_ModifyPanel.add(jtf_PassChangerField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, 60));
-        jp_ModifyPanel.add(jtf_NameChangerField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 290, 60));
+        jp_ModifyPanel.add(jl_ChangePassTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+        jp_ModifyPanel.add(jtf_PassChangerField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 290, 60));
 
         jb_UpdateButton.setText("Update");
         jb_UpdateButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -978,10 +960,10 @@ public class GUI extends javax.swing.JFrame
         
     }//GEN-LAST:event_jb_CloseSessionButtonMouseClicked
 
-    private void jb_ModifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ModifyButtonActionPerformed
+    private void jb_ChangePasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ChangePasswordButtonActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jb_ModifyButtonActionPerformed
+    }//GEN-LAST:event_jb_ChangePasswordButtonActionPerformed
 
     private void jb_MyProfileButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_MyProfileButtonMouseClicked
         // TODO add your handling code here:
@@ -1001,17 +983,17 @@ public class GUI extends javax.swing.JFrame
         
     }//GEN-LAST:event_jb_MyProfileButtonMouseClicked
 
-    private void jb_ModifyButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ModifyButtonMouseClicked
+    private void jb_ChangePasswordButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ChangePasswordButtonMouseClicked
         // TODO add your handling code here:
         Player p = logger.getLoggedInPlayer();
         
-        jtf_NameChangerField.setText(p.getUsername());
+        
         jtf_PassChangerField.setText(p.getPassword());
         
         jp_ProfileDataPanel.setVisible(false);
         jp_ModifyPanel.setVisible(true);
         
-    }//GEN-LAST:event_jb_ModifyButtonMouseClicked
+    }//GEN-LAST:event_jb_ChangePasswordButtonMouseClicked
 
     private void jb_UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_UpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -1021,15 +1003,14 @@ public class GUI extends javax.swing.JFrame
         // TODO add your handling code here:
         Player p = logger.getLoggedInPlayer();
         
-        String newName = jtf_NameChangerField.getText();
         String newPass = jtf_PassChangerField.getText();
         
-        if (newName.isBlank() || newPass.isBlank())
+        if (newPass.isBlank())
         {
             JOptionPane.showMessageDialog(this, "Please do not leave empty spaces.");
         } else
         {
-            p.setUsername(newName);
+
             p.setPassword(newPass);
             JOptionPane.showMessageDialog(this, "Profile data updated successfully");
             logger.listPlayers();
@@ -1089,9 +1070,15 @@ public class GUI extends javax.swing.JFrame
         {
             for (int i = 0; i < p.getGameReports().length; i++)
             {
-                rowData[0] = p.getGameReports()[i].getDescription();
-
-                tblm.addRow(rowData);
+                if (p.getGameReports()[i] == null)
+                {
+                    JOptionPane.showMessageDialog(this, "This player does not have any game reports.", "Error", JOptionPane.OK_OPTION);
+                    break;
+                } else
+                {
+                    rowData[0] = p.getGameReports()[i].getDescription();
+                    tblm.addRow(rowData);
+                }
             }
             alreadyInTable = true;
 
@@ -1109,6 +1096,16 @@ public class GUI extends javax.swing.JFrame
         */
         jp_10GamesPanel.setVisible(false);
         cardLayout.show(jp_CardHandler, "ReportsCard");
+        
+        Player p = logger.getLoggedInPlayer();
+
+        //jt_10GamesTable.setModel(new DefaultTableModel(null, new String[]{"Game Description"}));
+        /*rowData[0] = "";
+                    tblm.addRow(rowData);*/
+        
+        
+        
+
 
     }//GEN-LAST:event_jb_ReportsButtonMouseClicked
 
@@ -1130,11 +1127,8 @@ public class GUI extends javax.swing.JFrame
         //jp_ReportsMenuBG.setVisible(false);
         //jp_10GamesPanel.setVisible(false);
         
+        //alreadyInTable = false;
     }//GEN-LAST:event_jb_ReportsToMenuButtonMouseClicked
-
-    private void jb_ReportsToMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ReportsToMenuButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_ReportsToMenuButtonActionPerformed
 
     private void jb_SettingBackToMenuButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_SettingBackToMenuButtonMouseClicked
         // TODO add your handling code here:
@@ -1164,6 +1158,10 @@ public class GUI extends javax.swing.JFrame
         // TODO add your handling code here:
         cardLayout.show(jp_CardHandler, "GameCard");
     }//GEN-LAST:event_jb_PlayButtonMouseClicked
+
+    private void jb_EraseAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_EraseAccountButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_EraseAccountButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1195,7 +1193,9 @@ public class GUI extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI().setVisible(true);
+                GUI mainFrame = new GUI();
+                mainFrame.setVisible(true);
+                mainFrame.setLocationRelativeTo(null);
             }
         });
     }
@@ -1211,12 +1211,12 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JButton jb_10GamesButton;
     private javax.swing.JButton jb_BackToMainMenuButton;
+    private javax.swing.JButton jb_ChangePasswordButton;
     private javax.swing.JButton jb_CloseSessionButton;
     private javax.swing.JButton jb_EraseAccountButton;
     private javax.swing.JButton jb_ExitButton;
     private javax.swing.JButton jb_LGGoToSUButton;
     private javax.swing.JButton jb_LGLoginButton;
-    private javax.swing.JButton jb_ModifyButton;
     private javax.swing.JButton jb_MyProfileButton;
     private javax.swing.JButton jb_PlayButton;
     private javax.swing.JButton jb_RankingButton;
@@ -1230,7 +1230,6 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JButton jb_UpdateButton;
     private javax.swing.JComboBox<String> jcb_DifficultyBox;
     private javax.swing.JComboBox<String> jcb_GamemodebBox;
-    private javax.swing.JLabel jl_ChangeNameTitle;
     private javax.swing.JLabel jl_ChangePassTitle;
     private javax.swing.JLabel jl_DifficultyLabel;
     private javax.swing.JLabel jl_EnemyLabel;
@@ -1291,7 +1290,6 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JTable jt_10GamesTable;
     private javax.swing.JTextField jtf_LGNameField;
     private javax.swing.JTextField jtf_LGPasswordField;
-    private javax.swing.JTextField jtf_NameChangerField;
     private javax.swing.JTextField jtf_PassChangerField;
     private javax.swing.JTextField jtf_SUNameField;
     private javax.swing.JTextField jtf_SUPasswordField;
@@ -1299,4 +1297,20 @@ public class GUI extends javax.swing.JFrame
     Logger logger = new Logger();
     boolean alreadyInTable = false;
     //ArrayList<Player> Players = new ArrayList<>(); 
+    
+    
+    private void initTestPlayers()
+    {
+        Player p1 = new Player("Dumy1", "Test1");
+        Player p2 = new Player("Dumy2", "Test2");
+        logger.addPlayer(p1);
+        logger.addPlayer(p2);
+        p1.setPlayerScore(115);
+        p2.setPlayerScore(935);
+        GhostGame[] gr1 = p1.getGameReports();
+        for (int i = 0; i < gr1.length; i++) {
+            gr1[i] = new GhostGame(3, p2.getUsername(), true);
+            gr1[i].setDescription("Este es una prueba! Le has ganado a " + p2.getUsername());
+        }
+    }
 }
